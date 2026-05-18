@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  /* =====================
+     BUTTONS
+  ===================== */
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 active:bg-primary-700
+           text-white font-semibold py-3 px-6 rounded-xl
+           transition-all duration-200 shadow-orange hover:shadow-lg
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 border border-gray-200
+           text-gray-700 font-semibold py-3 px-6 rounded-xl
+           transition-all duration-200 hover:shadow-md
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white font-semibold
+           py-3 px-6 rounded-xl transition-all duration-200;
+  }
+
+  /* =====================
+     INPUTS
+  ===================== */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200
+           bg-white text-gray-900 placeholder-gray-400
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  /* =====================
+     CARDS
+  ===================== */
+  .card {
+    @apply bg-white rounded-2xl shadow-card p-6 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:-translate-y-1 cursor-pointer;
+  }
+
+  /* =====================
+     BADGES
+  ===================== */
+  .badge-veg {
+    @apply inline-flex items-center gap-1 bg-green-100 text-green-700
+           text-xs font-medium px-2 py-0.5 rounded;
+  }
+
+  .badge-nonveg {
+    @apply inline-flex items-center gap-1 bg-red-100 text-red-700
+           text-xs font-medium px-2 py-0.5 rounded;
+  }
+
+  /* Order Status Badges */
+  .status-pending    { @apply bg-yellow-100 text-yellow-700; }
+  .status-accepted   { @apply bg-blue-100 text-blue-700; }
+  .status-preparing  { @apply bg-purple-100 text-purple-700; }
+  .status-ready      { @apply bg-indigo-100 text-indigo-700; }
+  .status-picked_up  { @apply bg-orange-100 text-orange-700; }
+  .status-on_the_way { @apply bg-orange-100 text-orange-700; }
+  .status-delivered  { @apply bg-green-100 text-green-700; }
+  .status-cancelled  { @apply bg-red-100 text-red-700; }
+
+  /* =====================
+     LAYOUT
+  ===================== */
+  .container-page {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-2xl font-display font-bold text-gray-900;
+  }
+
+  /* =====================
+     SKELETON LOADING
+  ===================== */
+  .skeleton {
+    @apply bg-gray-200 animate-pulse rounded-lg;
+  }
+
+  /* =====================
+     SCROLLBAR
+  ===================== */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* =====================
+   CUSTOM ANIMATIONS
+===================== */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
